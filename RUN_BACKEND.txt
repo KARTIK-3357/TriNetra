@@ -1,0 +1,9 @@
+Backend start command
+=====================
+
+From the project root (C:\TriNetra), run:
+
+cd backend
+.\venv\Scripts\uvicorn.exe app.main:app --reload --port 5000
+
+Backend URL: http://localhost:5000

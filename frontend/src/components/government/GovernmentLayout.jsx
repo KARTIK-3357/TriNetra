@@ -11,6 +11,7 @@ const navItems = [
   { label: 'Overview', icon: 'dashboard', to: '/government' },
   { label: 'Projects', icon: 'account_tree', to: '/government/projects' },
   { label: 'AI Risk Monitor', icon: 'monitor_heart', to: '/government/risk-monitor' },
+  { label: 'AI Assessment', icon: 'monitoring', to: '/government/ai-assessment' },
   { label: 'Investigations', icon: 'policy', to: '/government/investigations' },
   { label: 'Analytics', icon: 'monitoring', to: '/government/analytics' },
 ];

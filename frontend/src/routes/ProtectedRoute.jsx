@@ -3,14 +3,10 @@ import { useAuth } from '../context/AuthContext';
 import { getDashboardPath } from '../constants/dashboardRoutes';
 
 export function GuestRoute() {
-  const { user, ready } = useAuth();
+  const { ready } = useAuth();
 
   if (!ready) {
     return <div className="auth-restore" aria-live="polite">Restoring session…</div>;
-  }
-
-  if (user?.role) {
-    return <Navigate to={getDashboardPath(user.role)} replace />;
   }
 
   return <Outlet />;

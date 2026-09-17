@@ -113,13 +113,13 @@ function Login() {
 
           <form onSubmit={handleSubmit} noValidate>
             <div className="auth-field">
-              <label htmlFor="identifier">Email / Registered ID</label>
+              <label htmlFor="identifier">Email address</label>
               <input
                 id="identifier"
                 name="identifier"
                 type="text"
                 autoComplete="username"
-                placeholder="you@example.com or registered ID"
+                placeholder="you@example.com"
                 value={identifier}
                 onChange={(event) => {
                   setIdentifier(event.target.value);

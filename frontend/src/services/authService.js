@@ -1,6 +1,10 @@
 import { signInWithFirebase } from './firebaseAuth';
+import { authenticateDemoAccount } from '../auth/demoAccounts';
 
 export async function login(identifier, password) {
+  const demoResult = authenticateDemoAccount(identifier, password);
+  if (demoResult) return demoResult;
+
   return signInWithFirebase(identifier, password);
 }
 

@@ -14,6 +14,7 @@ import GovernmentProjects from '../pages/government/GovernmentProjects';
 import AIRiskMonitor from '../pages/government/AIRiskMonitor';
 import Investigation from '../pages/government/Investigation';
 import Analytics from '../pages/government/Analytics';
+import AiAssessment from '../pages/government/AiAssessment';
 import ConstructorDashboard from '../pages/constructor/ConstructorDashboard';
 import { GuestRoute, ProtectedRoute } from './ProtectedRoute';
 
@@ -41,6 +42,7 @@ function AppRoutes() {
         <Route path="/government" element={<GovernmentDashboard />} />
         <Route path="/government/projects" element={<GovernmentProjects />} />
         <Route path="/government/risk-monitor" element={<AIRiskMonitor />} />
+        <Route path="/government/ai-assessment" element={<AiAssessment />} />
         <Route path="/government/risk" element={<Navigate to="/government/risk-monitor" replace />} />
         <Route path="/government/investigations" element={<Investigation />} />
         <Route path="/government/investigation" element={<Navigate to="/government/investigations" replace />} />

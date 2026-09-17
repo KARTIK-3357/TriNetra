@@ -16,14 +16,19 @@ const EMAIL_ROLE_MAP = (() => {
   }
 })();
 
+function normaliseRole(role) {
+  const value = String(role || '').trim().toLowerCase();
+  return value === 'constructor' ? 'contractor' : value;
+}
+
 function getRoleFromFirebaseUser(user) {
   if (!user) return null;
 
   const uidRole = ROLE_MAP[user.localId] || ROLE_MAP[user.uid];
-  if (uidRole) return uidRole;
+  if (uidRole) return normaliseRole(uidRole);
 
-  const emailRole = EMAIL_ROLE_MAP[String(user.email || '').toLowerCase()];
-  if (emailRole) return emailRole;
+  const emailRole = EMAIL_ROLE_MAP[String(user.email || '').trim().toLowerCase()];
+  if (emailRole) return normaliseRole(emailRole);
 
   return null;
 }

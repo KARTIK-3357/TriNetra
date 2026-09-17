@@ -30,7 +30,6 @@ function persistSession(payload, remember) {
 }
 
 function clearSession() {
-  sessionStorage.removeItem(SESSION_KEY);
   localStorage.removeItem(REMEMBER_KEY);
 }
 

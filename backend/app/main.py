@@ -11,6 +11,7 @@ from sqlalchemy.orm import Session
 
 from .database import get_db
 from .models import CompletedWork, SanctionedWork
+from .risk_model import assess
 
 app = FastAPI(title="Trinetra API")
 app.add_middleware(
@@ -20,6 +21,14 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+#ai assesment api defined 
+@app.post("/api/government/ai-assessment")
+def ai_assessment(payload: dict):
+    try:
+        return assess(payload)
+    except ValueError as error:
+        raise HTTPException(status_code=422, detail=str(error)) from error
 
 
 def district_from_ida(ida: str | None) -> str:
@@ -688,5 +697,4 @@ def citizen_overview(db: Session = Depends(get_db)):
 @app.post("/api/feedback")
 def submit_feedback(payload: dict):
     return {"ok": True, "message": "Feedback recorded for review.", "payload": payload}
-
 
